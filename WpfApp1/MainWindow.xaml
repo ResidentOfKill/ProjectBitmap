@@ -1,0 +1,55 @@
+﻿<Window x:Name="Bitmap" x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="Bitmap" Height="450" Width="520" Background="#FFEDF99F" Icon="waterdrop.png">
+    <Grid>
+        <Rectangle  Margin="25,25,0,0"      Height="250" Width="400" HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="Black" Fill="#FFF1F1F1"/>
+        <Image      Margin="175,100,0,0"    Height="100" Width="100" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <!-- Slider -->
+        <Slider     Margin="436,25,0,0"     Height="250" Width="20"  HorizontalAlignment="Left" VerticalAlignment="Top" 
+                    Orientation="Vertical"/>
+        <Label      Margin="460,28,0,0"     Height="26"  Width="43"  HorizontalAlignment="Left" VerticalAlignment="Top" 
+                    Content="100%"/>
+        <Label      Margin="460,250,0,0"    Height="26"  Width="43"  HorizontalAlignment="Left" VerticalAlignment="Top" 
+                    Content="100%"/>
+        <Label      Margin="455,128,0,0"    Height="26"  Width="56"  HorizontalAlignment="Left" VerticalAlignment="Top" 
+                    Content="Qualität"/>
+
+        <!-- Skalierung -->
+        <Label      Margin="47,283,0,0"     Height="28"  Width="67"  HorizontalAlignment="Left" VerticalAlignment="Top" 
+                    Content="Skalierung" RenderTransformOrigin="0.5,0.5" VerticalContentAlignment="Center"/>
+
+        <!-- Höhe -->
+        <Label      Margin="28,300,0,0"     Height="24"  Width="42"  HorizontalAlignment="Left" VerticalAlignment="Top" 
+                    Content="Höhe" RenderTransformOrigin="0.5,0.5" VerticalContentAlignment="Center"/>
+        <TextBox    Margin="24,325,0,0"     Height="20"  Width="50"  HorizontalAlignment="Left" VerticalAlignment="Top" 
+                    Text="100" TextWrapping="Wrap" TextChanged="TextBox_TextChanged" TextAlignment="Center"/>
+
+        <!-- Breite -->
+        <Label      Margin="86,302,0,0"     Height="24"  Width="48"  HorizontalAlignment="Left" VerticalAlignment="Top" 
+                    Content="Breite" RenderTransformOrigin="0.5,0.5" VerticalContentAlignment="Center"/>
+        <TextBox    Margin="86,325,0,0"     Height="20"  Width="50"  HorizontalAlignment="Left" VerticalAlignment="Top" 
+                    Text="100" TextWrapping="Wrap" TextChanged="TextBox_TextChanged" TextAlignment="Center"/>
+
+        <!-- Dateigröße -->
+        <TextBox    Margin="26,388,0,0"     Height="20"  Width="110"  HorizontalAlignment="Left" VerticalAlignment="Top" 
+                    Text="4 Giga Byte" TextWrapping="Wrap" TextChanged="TextBox_TextChanged" TextAlignment="Center"/>
+        <TextBlock Margin="27,366,0,0"     Height="20"  Width="109"  HorizontalAlignment="Left" VerticalAlignment="Top" 
+                   TextWrapping="Wrap" Text="TextBlock"  TextAlignment="Center"/>
+        
+        
+        <ComboBox Margin="222,314,0,0"     Height="20"  Width="76"  HorizontalAlignment="Left" VerticalAlignment="Top">
+            <ComboBoxItem Content="Dateityp"/>
+            <ComboBoxItem Content=".PNG"/>
+            <ComboBoxItem Content=".JPG"/>
+            <ComboBoxItem Content=".GIF"/>
+            <ComboBoxItem Content=".BMP"/>
+        </ComboBox>
+
+
+    </Grid>
+</Window>

@@ -1,0 +1,15 @@
+C:\Users\Mikolai Hecht\source\repos\Bitmap\WpfApp1\bin\Debug\WpfApp1.exe.config
+C:\Users\Mikolai Hecht\source\repos\Bitmap\WpfApp1\bin\Debug\WpfApp1.exe
+C:\Users\Mikolai Hecht\source\repos\Bitmap\WpfApp1\bin\Debug\WpfApp1.pdb
+C:\Users\Mikolai Hecht\source\repos\Bitmap\WpfApp1\obj\Debug\WpfApp1.csproj.AssemblyReference.cache
+C:\Users\Mikolai Hecht\source\repos\Bitmap\WpfApp1\obj\Debug\MainWindow.g.cs
+C:\Users\Mikolai Hecht\source\repos\Bitmap\WpfApp1\obj\Debug\App.g.cs
+C:\Users\Mikolai Hecht\source\repos\Bitmap\WpfApp1\obj\Debug\WpfApp1_MarkupCompile.cache
+C:\Users\Mikolai Hecht\source\repos\Bitmap\WpfApp1\obj\Debug\WpfApp1_MarkupCompile.lref
+C:\Users\Mikolai Hecht\source\repos\Bitmap\WpfApp1\obj\Debug\MainWindow.baml
+C:\Users\Mikolai Hecht\source\repos\Bitmap\WpfApp1\obj\Debug\WpfApp1.g.resources
+C:\Users\Mikolai Hecht\source\repos\Bitmap\WpfApp1\obj\Debug\WpfApp1.Properties.Resources.resources
+C:\Users\Mikolai Hecht\source\repos\Bitmap\WpfApp1\obj\Debug\WpfApp1.csproj.GenerateResource.cache
+C:\Users\Mikolai Hecht\source\repos\Bitmap\WpfApp1\obj\Debug\WpfApp1.csproj.CoreCompileInputs.cache
+C:\Users\Mikolai Hecht\source\repos\Bitmap\WpfApp1\obj\Debug\WpfApp1.exe
+C:\Users\Mikolai Hecht\source\repos\Bitmap\WpfApp1\obj\Debug\WpfApp1.pdb

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="Bitmap" Height="450" Width="540" Background="#fff" Icon="waterdrop.png">
+        Title="Bitmap" Height="450" Width="540" Icon="waterdrop.png">
     <Grid>
         <Rectangle  Margin="25,25,0,0"      Height="250" Width="400" HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="Black" Fill="#FFF1F1F1"/>
         <Image      Margin="175,100,0,0"    Height="100" Width="100" HorizontalAlignment="Left" VerticalAlignment="Top" />
@@ -42,7 +42,7 @@
                    TextWrapping="Wrap" Text="TextBlock"  TextAlignment="Center"/>
         
         
-        <ComboBox Margin="222,314,0,0"     Height="20"  Width="76"  HorizontalAlignment="Left" VerticalAlignment="Top">
+        <ComboBox Margin="222,314,0,0"     Height="20"  Width="75"  HorizontalAlignment="Left" VerticalAlignment="Top" SelectedIndex="0" >
             <ComboBoxItem Content="Dateityp"/>
             <ComboBoxItem Content=".PNG"/>
             <ComboBoxItem Content=".JPG"/>
@@ -50,8 +50,8 @@
             <ComboBoxItem Content=".BMP"/>
         </ComboBox>
 
-           <Button Margin="430,314,0,0"     Height="20"  Width="76"  HorizontalAlignment="Left" VerticalAlignment="Top" >Speichern</Button>
-           <Button Margin="350,314,0,0"     Height="20"  Width="76"  HorizontalAlignment="Left" VerticalAlignment="Top" >Reset</Button>
+           <Button Margin="430,314,0,0"     Height="20"  Width="70"  HorizontalAlignment="Left" VerticalAlignment="Top" >Speichern</Button>
+           <Button Margin="350,314,0,0"     Height="20"  Width="70"  HorizontalAlignment="Left" VerticalAlignment="Top" >Reset</Button>
            <Button Margin="350,353,0,0"     Height="20"  Width="150"  HorizontalAlignment="Left" VerticalAlignment="Top" >Datei Öffnen</Button>
     </Grid>
 </Window>

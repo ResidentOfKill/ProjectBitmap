@@ -28,3 +28,17 @@ C:\Users\JLawrenz\Source\Repos\ResidentOfKill\ProjectBitmap\WpfApp1\obj\Debug\Wp
 C:\Users\JLawrenz\Source\Repos\ResidentOfKill\ProjectBitmap\WpfApp1\obj\Debug\WpfApp1.csproj.CoreCompileInputs.cache
 C:\Users\JLawrenz\Source\Repos\ResidentOfKill\ProjectBitmap\WpfApp1\obj\Debug\WpfApp1.exe
 C:\Users\JLawrenz\Source\Repos\ResidentOfKill\ProjectBitmap\WpfApp1\obj\Debug\WpfApp1.pdb
+C:\Users\DCelik\source\repos\ResidentOfKill\ProjectBitmap\WpfApp1\obj\Debug\App.g.cs
+C:\Users\DCelik\source\repos\ResidentOfKill\ProjectBitmap\WpfApp1\obj\Debug\WpfApp1_MarkupCompile.cache
+C:\Users\DCelik\source\repos\ResidentOfKill\ProjectBitmap\WpfApp1\obj\Debug\WpfApp1_MarkupCompile.lref
+C:\Users\DCelik\source\repos\ResidentOfKill\ProjectBitmap\WpfApp1\obj\Debug\WpfApp1.exe
+C:\Users\DCelik\source\repos\ResidentOfKill\ProjectBitmap\WpfApp1\obj\Debug\WpfApp1.pdb
+C:\Users\DCelik\source\repos\ResidentOfKill\ProjectBitmap\WpfApp1\bin\Debug\WpfApp1.exe.config
+C:\Users\DCelik\source\repos\ResidentOfKill\ProjectBitmap\WpfApp1\bin\Debug\WpfApp1.exe
+C:\Users\DCelik\source\repos\ResidentOfKill\ProjectBitmap\WpfApp1\bin\Debug\WpfApp1.pdb
+C:\Users\DCelik\source\repos\ResidentOfKill\ProjectBitmap\WpfApp1\obj\Debug\WpfApp1.g.resources
+C:\Users\DCelik\source\repos\ResidentOfKill\ProjectBitmap\WpfApp1\obj\Debug\WpfApp1.Properties.Resources.resources
+C:\Users\DCelik\source\repos\ResidentOfKill\ProjectBitmap\WpfApp1\obj\Debug\WpfApp1.csproj.GenerateResource.cache
+C:\Users\DCelik\source\repos\ResidentOfKill\ProjectBitmap\WpfApp1\obj\Debug\WpfApp1.csproj.CoreCompileInputs.cache
+C:\Users\DCelik\source\repos\ResidentOfKill\ProjectBitmap\WpfApp1\obj\Debug\MainWindow.g.cs
+C:\Users\DCelik\source\repos\ResidentOfKill\ProjectBitmap\WpfApp1\obj\Debug\MainWindow.baml

@@ -97,8 +97,6 @@
   <ItemGroup>
     <Resource Include="waterdrop.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Window\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

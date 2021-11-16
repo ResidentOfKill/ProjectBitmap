@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="Bitmap" Height="450" Width="540" Icon="waterdrop.png">
     <Grid>
+        
         <Rectangle  Margin="25,25,0,0"      Height="250" Width="400" HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="Black" Fill="#FFF1F1F1"/>
         <Image      Margin="175,100,0,0"    Height="100" Width="100" HorizontalAlignment="Left" VerticalAlignment="Top" />
         <!-- Slider -->

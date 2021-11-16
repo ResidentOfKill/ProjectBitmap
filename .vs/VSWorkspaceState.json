@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\ImageLibrary"
+    "\\WpfApp1",
+    "\\WpfApp1\\Controller"
   ],
-  "SelectedNode": "\\ImageLibrary\\ImageLibrary.csproj",
+  "SelectedNode": "\\WpfApp1\\MainWindow.xaml",
   "PreviewInSolutionExplorer": false
 }

@@ -7,11 +7,19 @@ using Microsoft.Win32;
 
 namespace WpfApp1
 {
-    class MainWindowModel
+    public class MainWindowModel
     {
         public MainWindowModel()
         {
             
+        }
+
+        public string ImagePath { get; set; }
+        public string TargetPath { get; set; }
+
+        public void ScaleImage(int width,int height)
+        {
+            ImageModifier.ResizeImage(ImagePath, TargetPath, width, height);
         }
     }
 }

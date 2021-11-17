@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace WpfApp1
 {
-    class ImageModifier
+    public static class ImageModifier
     {
         #region [   ImageConversion   ]
 
@@ -237,7 +237,7 @@ namespace WpfApp1
             }
             catch(Exception e)
             {
-                Debug.WriteLine($"{e.GetType().Name}: {e.Message}\n{e.StackTrace}");
+                Debug.WriteLine($"{e.GetType().Name}: {e.Message}{Environment.NewLine}{e.StackTrace}");
             }
         }
 

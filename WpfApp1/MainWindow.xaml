@@ -11,103 +11,131 @@
 		Width="540"
 		Icon="waterdrop.png">
 	<Grid>
-
-		<Rectangle  Margin="25,25,0,0"
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="1*" />
+			<ColumnDefinition Width="0.25*" />
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="1*" />
+			<RowDefinition Height="0.5*" />
+		</Grid.RowDefinitions>
+		<Rectangle  Grid.Row="0"
+					Grid.Column="0"
 					Name="ImageBackground"
-					Height="250"
-					Width="400"
-					HorizontalAlignment="Left"
-					VerticalAlignment="Top"
+					Height="auto"
+					Width="auto"
 					Stroke="Black"
+					StrokeThickness="1"
 					Fill="#FFF1F1F1" />
-		<Image      Margin="175,100,0,0"
-					Height="100"
-					Width="100"
-					HorizontalAlignment="Left"
-					VerticalAlignment="Top" />
+
+		<Image      Grid.Column="0"
+					Grid.Row="0"
+					Margin="5,5"
+					Name="CurrentImage" />
+
 		<!-- Slider -->
-		<Slider     Margin="436,25,0,0"
-					Height="250"
+		<Border BorderBrush="Black"
+				BorderThickness="1"
+				Grid.Row="0"
+				Grid.Column="1" />
+
+		<Border BorderBrush="Black"
+				BorderThickness="1"
+				Grid.Column="0"
+				Grid.Row="1"/>
+
+		<StackPanel Orientation="Vertical"
+					Grid.Row="0"
+					Grid.Column="1">
+			<TextBlock HorizontalAlignment="Left"
+					   VerticalAlignment="Top"
+					   Text="Qualität"
+					   FontWeight="DemiBold"
+					   Margin="10,5" />
+			<Separator Visibility="Hidden"
+					   Height="0" />
+			<TextBlock Grid.Row="0"
+					   Grid.Column="1"
+					   HorizontalAlignment="Left"
+					   VerticalAlignment="Top"
+					   Text="100%"
+					   Margin="15,0" />
+			<Separator Visibility="Hidden" />
+			<Slider Height="200"
 					Width="20"
-					HorizontalAlignment="Left"
-					VerticalAlignment="Top"
-					Orientation="Vertical" />
-		<Label      Margin="460,28,0,0"
-					Height="26"
-					Width="43"
-					HorizontalAlignment="Left"
-					VerticalAlignment="Top"
-					Content="100%" />
-		<Label      Margin="460,250,0,0"
-					Height="26"
-					Width="43"
-					HorizontalAlignment="Left"
-					VerticalAlignment="Top"
-					Content="100%" />
-		<Label      Margin="455,128,0,0"
-					Height="26"
-					Width="56"
-					HorizontalAlignment="Left"
-					VerticalAlignment="Top"
-					Content="Qualität" />
+					Margin="0,0,50,0"
+					Orientation="Vertical"
+					Minimum="0"
+					Maximum="100"
+					Name="Slider" />
+
+			<Separator Visibility="Hidden" />
+			<TextBlock HorizontalAlignment="Left"
+					   VerticalAlignment="Top"
+					   Text="0%"
+					   Margin="22,0" />
+		</StackPanel>
+
 
 		<!-- Skalierung -->
-		<Label      Margin="47,283,0,0"
-					Height="28"
-					Width="67"
-					HorizontalAlignment="Left"
-					VerticalAlignment="Top"
-					Content="Skalierung"
-					RenderTransformOrigin="0.5,0.5"
-					VerticalContentAlignment="Center" />
+		<StackPanel Orientation="Vertical"
+					Grid.Row="1"
+					Grid.Column="0">
 
-		<!-- Höhe -->
-		<Label      Margin="28,300,0,0"
-					Height="24"
-					Width="42"
-					HorizontalAlignment="Left"
-					VerticalAlignment="Top"
-					Content="Höhe"
-					RenderTransformOrigin="0.5,0.5"
-					VerticalContentAlignment="Center" />
-		<TextBox    Margin="24,325,0,0"
-					Height="20"
-					Width="50"
-					HorizontalAlignment="Left"
-					VerticalAlignment="Top"
-					Text="100"
-					TextWrapping="Wrap"
-					TextAlignment="Center" />
 
-		<!-- Breite -->
-		<Label      Margin="86,302,0,0"
-					Height="24"
-					Width="48"
-					HorizontalAlignment="Left"
-					VerticalAlignment="Top"
-					Content="Breite"
-					RenderTransformOrigin="0.5,0.5"
-					VerticalContentAlignment="Center" />
-		<TextBox    Margin="86,325,0,0"
-					Height="20"
-					Width="50"
-					HorizontalAlignment="Left"
-					VerticalAlignment="Top"
-					Text="100"
-					TextWrapping="Wrap"
-					TextAlignment="Center" />
-
+			<!-- Höhe -->
+			<StackPanel Orientation="Vertical">
+				<TextBlock Margin="5,5,0,0"
+						   HorizontalAlignment="Left"
+						   VerticalAlignment="Top"
+						   Text="Skalierung:"
+						   FontWeight="DemiBold" />
+				<StackPanel Orientation="Horizontal"
+							Grid.Row="1"
+							Grid.Column="0"
+							HorizontalAlignment="Left"
+							Margin="5,0,0,0">
+					<StackPanel Orientation="Vertical">
+						<Label HorizontalAlignment="Center"
+								   VerticalAlignment="Center"
+								   Content="Höhe"
+								   FontWeight="Medium" />
+						<TextBox Height="25"
+								 Width="50"
+								 HorizontalContentAlignment="Center"
+								 VerticalContentAlignment="Center"
+								 Text="100"
+								 TextWrapping="Wrap"
+								 TextAlignment="Center" />
+					</StackPanel>
+					<Separator Width="5"
+							   Visibility="Hidden" />
+					<StackPanel Orientation="Vertical">
+						<!-- Breite -->
+						<Label HorizontalAlignment="Center"
+								   VerticalAlignment="Center"
+								   Content="Breite"
+								   FontWeight="Medium" />
+						<TextBox Height="25"
+								 Width="50"
+								 HorizontalContentAlignment="Center"
+								 VerticalContentAlignment="Center"
+								 Text="100"
+								 TextWrapping="Wrap"
+								 TextAlignment="Center" />
+					</StackPanel>
+				</StackPanel>
+			</StackPanel>
+		</StackPanel>
 		<!-- Dateigröße -->
-		<TextBox    Margin="26,388,0,0"
-					Height="20"
-					Width="110"
-					HorizontalAlignment="Left"
-					VerticalAlignment="Top"
-					Text="4 Giga Byte"
-					TextWrapping="Wrap"
-					TextAlignment="Center" />
-		<TextBlock Margin="27,366,0,0"
-				   Height="20"
+		<TextBox Height="20"
+				 Width="110"
+				 HorizontalAlignment="Left"
+				 VerticalAlignment="Top"
+				 Text="4 Giga Byte"
+				 TextWrapping="Wrap"
+				 TextAlignment="Center" />
+		<TextBlock Height="20"
 				   Width="109"
 				   HorizontalAlignment="Left"
 				   VerticalAlignment="Top"
@@ -116,8 +144,7 @@
 				   TextAlignment="Center" />
 
 
-		<ComboBox Margin="222,314,0,0"
-				  Height="20"
+		<ComboBox Height="20"
 				  Width="75"
 				  HorizontalAlignment="Left"
 				  VerticalAlignment="Top"
@@ -129,20 +156,22 @@
 			<ComboBoxItem Content=".BMP" />
 		</ComboBox>
 
-		<Button Margin="430,314,0,0"
-				Height="20"
+		<Button Height="20"
 				Width="70"
 				HorizontalAlignment="Left"
-				VerticalAlignment="Top">Speichern</Button>
-		<Button Margin="350,314,0,0"
-				Height="20"
+				VerticalAlignment="Top"
+				Content="Speichern"
+				Click="Save_Click"
+				Name="SaveButton" />
+		<Button Height="20"
 				Width="70"
 				HorizontalAlignment="Left"
 				VerticalAlignment="Top">Reset</Button>
-		<Button Margin="350,353,0,0"
-				Height="20"
+		<Button Height="20"
 				Width="150"
 				HorizontalAlignment="Left"
-				VerticalAlignment="Top">Datei Öffnen</Button>
+				VerticalAlignment="Top"
+				Content="Datei Öffnen"
+				Click="OpenFile_Click" />
 	</Grid>
 </Window>

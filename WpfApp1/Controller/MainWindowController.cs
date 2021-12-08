@@ -18,13 +18,14 @@ using WpfApp1.Interfaces;
 
 namespace WpfApp1.Controller
 {
-    public partial class MainWindowController : Window, IImageController
+    public partial class MainWindowController : Window
     {
         private MainWindowModel _model;
         public MainWindowController()
         {
             InitializeComponent();
             _model = new MainWindowModel();
+            SliderStackPanel.Visibility = Visibility.Collapsed;
         }
 
         public string ImagePath
@@ -47,13 +48,28 @@ namespace WpfApp1.Controller
             if(dialog.ShowDialog() ?? false)
             {
                 ImagePath = dialog.FileName;
-                CurrentImage.Source = new BitmapImage(new Uri(ImagePath));
+                var currentImage = new BitmapImage(new Uri(ImagePath));
+                CurrentImage.Source = currentImage;
+                _model.CurrentImage = new Bitmap(currentImage.UriSource.AbsolutePath);
             }
         }
 
         public void Save_Click(object sender, EventArgs e)
         {
+            _model
+        }
 
+        public void RadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+            var radioButtonContent = sender is RadioButton isRadioButton ? isRadioButton.Content as string : throw new Exception();
+            if(radioButtonContent == "JPG")
+            {
+                SliderStackPanel.Visibility = Visibility.Visible;
+            }
+            else 
+            {
+                SliderStackPanel.Visibility = Visibility.Collapsed;
+            }
         }
     }
 }

@@ -241,6 +241,12 @@ namespace WpfApp1
             }
         }
 
+        public static Bitmap ResizeImage(Bitmap currentImage, int width, int height)
+        { 
+            Bitmap resizedBitmap = ResizeBitmap(currentImage, width, height);
+            return resizedBitmap;
+        }
+
         // Scale image to certain width, height or highest Dimension
         // either save or return the image
 

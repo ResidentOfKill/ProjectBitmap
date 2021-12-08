@@ -2,7 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\WpfApp1",
-    "\\WpfApp1\\Controller"
+    "\\WpfApp1\\Controller",
+    "\\WpfApp1\\obj",
+    "\\WpfApp1\\obj\\Debug"
   ],
   "SelectedNode": "\\WpfApp1\\MainWindow.xaml",
   "PreviewInSolutionExplorer": false

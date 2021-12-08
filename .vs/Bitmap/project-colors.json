@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "e32f5fb6-4ae1-429e-9e10-c2068867678a": {
+      "ProjectGuid": "e32f5fb6-4ae1-429e-9e10-c2068867678a",
+      "DisplayName": "WpfApp1",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

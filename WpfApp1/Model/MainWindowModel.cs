@@ -25,5 +25,20 @@ namespace WpfApp1
             CurrentImage = ImageModifier.ResizeImage(CurrentImage, width, height);
         }
 
+        public void SaveAsJPG(int quality)
+		{
+            ImageModifier.SaveAsJPG(CurrentImage, TargetPath , quality);
+		}
+
+        public void SaveAsPNG()
+		{
+            ImageModifier.SaveAsPNG(CurrentImage,TargetPath);
+		}
+
+        public void SaveAsBMP ()
+        {
+            ImageModifier.SaveAsBMP(CurrentImage, TargetPath);
+        }
+
     }
 }

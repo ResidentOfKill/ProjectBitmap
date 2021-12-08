@@ -16,23 +16,32 @@ namespace WpfApp1
 
         // Save/Convert Images as/to JPG, PNG or BMP
 
-        public static void SaveAsJPG(string sourcePath, string targetPath, long quality)
+        public static void SaveAsJPG(string sourcePath, string targetPath, int quality)
         {
             Bitmap bitmap = GetBitmap(sourcePath);
             if(bitmap == null) return;
 
             SaveAs(bitmap, targetPath, quality, ImageFormat.Jpeg);
         }
-
-        public static void SaveAsJPG(string sourcePath, Stream targetStream, long quality)
+        public static void SaveAsJPG (string sourcePath, string targetPath)
         {
-            Bitmap bitmap = GetBitmap(sourcePath);
-            if(bitmap == null) return;
+            SaveAsJPG (sourcePath, targetPath, 100);
+        }                                           
+                                                    
+        public static void SaveAsJPG(string sourcePath, Stream targetStream, int quality)
+        {                                           
+            Bitmap bitmap = GetBitmap(sourcePath);  
+            if(bitmap == null) return;              
 
             SaveAs(bitmap, targetStream, quality, ImageFormat.Jpeg);
         }
 
-        public static void SaveAsJPG(Stream sourceStream, string targetPath, long quality)
+        public static void SaveAsJPG (string sourcePath, Stream targetStream)
+        {
+            SaveAsJPG (sourcePath, targetStream, 100);
+        }
+
+        public static void SaveAsJPG(Stream sourceStream, string targetPath, int quality)
         {
             Bitmap bitmap = GetBitmap(sourceStream);
             if(bitmap == null) return;
@@ -40,7 +49,12 @@ namespace WpfApp1
             SaveAs(bitmap, targetPath, quality, ImageFormat.Jpeg);
         }
 
-        public static void SaveAsJPG(Stream sourceStream, Stream targetStream, long quality)
+        public static void SaveAsJPG (Stream sourceStream, string targetPath)
+        {
+            SaveAsJPG (sourceStream, targetPath, 100);
+        }
+
+        public static void SaveAsJPG(Stream sourceStream, Stream targetStream, int quality)
         {
             Bitmap bitmap = GetBitmap(sourceStream);
             if(bitmap == null) return;
@@ -48,18 +62,33 @@ namespace WpfApp1
             SaveAs(bitmap, targetStream, quality, ImageFormat.Jpeg);
         }
 
-        public static void SaveAsJPG(Bitmap bitmap, string targetPath, long quality)
+        public static void SaveAsJPG (Stream sourceStream, Stream targetStream)
+        {
+            SaveAsJPG (sourceStream, targetStream, 100);
+        }
+
+        public static void SaveAsJPG(Bitmap bitmap, string targetPath, int quality)
         {
             if(bitmap == null) return;
 
             SaveAs(bitmap, targetPath, quality, ImageFormat.Jpeg);
         }
 
-        public static void SaveAsJPG(Bitmap bitmap, Stream targetStream, long quality)
+        public static void SaveAsJPG (Bitmap bitmap, string targetPath)
+        {
+            SaveAsJPG (bitmap, targetPath, 100);
+        }
+
+        public static void SaveAsJPG(Bitmap bitmap, Stream targetStream, int quality)
         {
             if(bitmap == null) return;
 
             SaveAs(bitmap, targetStream, quality, ImageFormat.Jpeg);
+        }
+
+        public static void SaveAsJPG (Bitmap bitmap, Stream targetStream)
+        {
+            SaveAsJPG (bitmap, targetStream, 100);
         }
 
 

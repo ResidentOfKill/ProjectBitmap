@@ -1,0 +1,12 @@
+﻿<ResourceDictionary x:Class="WpfApp1.Helpers.NumberBox"
+					xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+					xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+	<Style TargetType="TextBox"
+		   x:Key="NumberBox">
+		<EventSetter Event="PreviewTextInput"
+					 Handler="TextBox_PreviewTextInput" />
+		<EventSetter Event="PreviewKeyDown"
+					 Handler="TextBox_PreviewKeyDown" />
+	</Style>
+</ResourceDictionary>

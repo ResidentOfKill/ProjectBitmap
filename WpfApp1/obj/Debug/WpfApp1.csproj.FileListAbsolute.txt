@@ -42,4 +42,6 @@ C:\Users\DCelik\source\repos\ResidentOfKill\ProjectBitmap\WpfApp1\obj\Debug\WpfA
 C:\Users\DCelik\source\repos\ResidentOfKill\ProjectBitmap\WpfApp1\obj\Debug\WpfApp1.csproj.CoreCompileInputs.cache
 C:\Users\DCelik\source\repos\ResidentOfKill\ProjectBitmap\WpfApp1\obj\Debug\MainWindow.g.cs
 C:\Users\DCelik\source\repos\ResidentOfKill\ProjectBitmap\WpfApp1\obj\Debug\MainWindow.baml
+C:\Users\DCelik\source\repos\ResidentOfKill\ProjectBitmap\WpfApp1\obj\Debug\Helpers\NumberBoxDictionary.baml
+C:\Users\DCelik\source\repos\ResidentOfKill\ProjectBitmap\WpfApp1\obj\Debug\Helpers\NumberBoxDictionary.g.cs
 C:\Users\DCelik\source\repos\ResidentOfKill\ProjectBitmap\WpfApp1\obj\Debug\WpfApp1.csproj.AssemblyReference.cache

@@ -13,6 +13,13 @@
 		Icon="waterdrop.png"
 		BorderBrush="Black"
 		BorderThickness="1">
+	<Window.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary Source="Helpers\NumberBoxDictionary.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
+	</Window.Resources>
 	<Grid>
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="451.333" />
@@ -75,6 +82,7 @@
 						Orientation="Vertical"
 						Minimum="0"
 						Maximum="100"
+						ValueChanged="QualitySlider_ValueChanged"
 						Name="QualitySlider" />
 
 				<Separator Visibility="Hidden" />
@@ -85,7 +93,15 @@
 			</StackPanel>
 			<TextBox Width="40"
 					 Height="25"
-					 Name="SliderValue" />
+					 Name="SliderValueTextBox"
+					 Style="{StaticResource NumberBox}" 
+					 VerticalContentAlignment="Center"
+					 VerticalAlignment="Center"
+					 HorizontalAlignment="Center"
+					 HorizontalContentAlignment="Center"
+					 IsReadOnly="True"
+					 IsReadOnlyCaretVisible="True"
+					 />
 			<Separator Width="10"
 					   Visibility="Hidden" />
 		</StackPanel>
@@ -124,6 +140,7 @@
 								 HorizontalContentAlignment="Center"
 								 VerticalContentAlignment="Center"
 								 Text="100"
+								 Style="{StaticResource NumberBox}"
 								 TextWrapping="Wrap"
 								 TextAlignment="Center"
 								 Name="ImageHeightTextBox" />
@@ -138,6 +155,7 @@
 							   FontWeight="Medium" />
 						<TextBox Height="25"
 								 Width="50"
+								 Style="{StaticResource NumberBox}"
 								 HorizontalContentAlignment="Center"
 								 VerticalContentAlignment="Center"
 								 Text="100"
@@ -166,6 +184,7 @@
 							   FontWeight="Medium" />
 					<TextBox Height="25"
 							 Width="110"
+							 Style="{StaticResource NumberBox}"
 							 HorizontalContentAlignment="Center"
 							 VerticalContentAlignment="Center"
 							 Text="Megabyte (MB)"
@@ -180,8 +199,6 @@
 							<RadioButton Content="PNG"
 										 Checked="RadioButton_Checked" />
 							<RadioButton Content="JPG"
-										 Checked="RadioButton_Checked" />
-							<RadioButton Content="GIF"
 										 Checked="RadioButton_Checked" />
 							<RadioButton Content="BMP"
 										 Checked="RadioButton_Checked" />

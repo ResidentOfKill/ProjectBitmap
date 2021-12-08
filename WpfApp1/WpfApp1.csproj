@@ -61,6 +61,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Controller\MainWindowController.cs" />
+    <Compile Include="Helpers\NumberBox.cs" />
     <Compile Include="ImageModifier.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -92,6 +93,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Helpers\NumberBoxDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

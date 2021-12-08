@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Win32;
+using WpfApp1.Helpers;
 using WpfApp1.Interfaces;
 
 namespace WpfApp1.Controller
@@ -56,7 +57,24 @@ namespace WpfApp1.Controller
 
         public void Save_Click(object sender, EventArgs e)
         {
-            _model
+
+        }
+
+        public void QualitySlider_ValueChanged(object sender, EventArgs e)
+        {
+            SliderValueTextBox.Text = QualitySlider.Value.ToString("N2");
+        }
+
+        public void Resize_Click(object sender, EventArgs e)
+        {
+            if(int.TryParse(ImageWidthTextBox.Text, out var width) && int.TryParse(ImageHeightTextBox.Text, out var height))
+            {
+                _model.ScaleImage(width, height);
+            }
+            else
+            {
+                throw new ArgumentException($"{ImageWidthTextBox} und {ImageHeightTextBox} enthalten keine oder inkompatible Numerischen Werte.");
+            }
         }
 
         public void RadioButton_Checked(object sender, RoutedEventArgs e)
@@ -66,7 +84,7 @@ namespace WpfApp1.Controller
             {
                 SliderStackPanel.Visibility = Visibility.Visible;
             }
-            else 
+            else
             {
                 SliderStackPanel.Visibility = Visibility.Collapsed;
             }

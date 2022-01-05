@@ -12,7 +12,8 @@
 		ResizeMode="CanResizeWithGrip"
 		Icon="waterdrop.png"
 		BorderBrush="Black"
-		BorderThickness="1">
+		BorderThickness="1"
+		>
 	<Window.Resources>
 		<ResourceDictionary>
 			<ResourceDictionary.MergedDictionaries>
@@ -83,8 +84,11 @@
 						Minimum="0"
 						Maximum="100"
 						ValueChanged="QualitySlider_ValueChanged"
-						Name="QualitySlider" />
-
+						Name="QualitySlider"
+						TickFrequency="10"
+						IsSnapToTickEnabled="True"
+						Value="100"
+						/>
 				<Separator Visibility="Hidden" />
 				<TextBlock HorizontalAlignment="Left"
 						   VerticalAlignment="Top"
@@ -221,7 +225,7 @@
 						Content="Datei Öffnen"
 						Click="OpenFile_Click"
 						Name="OpenFileButton" />
-				<Separator Height="30"
+				<Separator Height="15"
 						   Visibility="Hidden" />
 				<StackPanel Orientation="Horizontal"
 							HorizontalAlignment="Center">
@@ -250,5 +254,15 @@
 			<Separator Width="32.5"
 					   Visibility="Hidden" />
 		</StackPanel>
+		<Button Grid.Column="3"
+				Grid.Row="0"
+				Margin="-25,0,0,0"
+				VerticalAlignment="Top"
+				HorizontalAlignment="Right"
+			x:Name="HelpButton"
+				Width="20"
+				Height="20">
+			<Image Source="Question_mark.png" />
+		</Button>
 	</Grid>
 </Window>

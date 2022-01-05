@@ -14,26 +14,40 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Win32;
+using System.IO;
 using WpfApp1.Helpers;
 using WpfApp1.Interfaces;
+using System.Security.AccessControl;
 
 namespace WpfApp1.Controller
 {
     public partial class MainWindowController : Window
     {
         private MainWindowModel _model;
+        private int _imageCount = 0;
+
         public MainWindowController()
         {
             InitializeComponent();
-            _model = new MainWindowModel();
             SliderStackPanel.Visibility = Visibility.Collapsed;
+            Closing += DeleteTemporaryData_Closing;
         }
 
-        public string ImagePath
+        public string OriginalImagePath { get; set; }
+
+        private void DeleteTemporaryData_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            get;
-            set;
+            //File.Delete(_model.TargetPath);
         }
+
+        private void SetTargetPath(string fileExtension)
+        {
+            var path = System.IO.Path.Combine(Directory.GetCurrentDirectory(), $"temp", $"BitmapTempImage{++_imageCount}.bmp");
+            System.IO.Path.ChangeExtension(path, fileExtension);
+            _ = Directory.CreateDirectory(System.IO.Path.GetDirectoryName(path));
+            _model.TargetPath = path;
+        }
+
 
         public void OpenFile_Click(object sender, EventArgs e)
         {
@@ -48,21 +62,34 @@ namespace WpfApp1.Controller
             };
             if(dialog.ShowDialog() ?? false)
             {
-                ImagePath = dialog.FileName;
-                var currentImage = new BitmapImage(new Uri(ImagePath));
+                OriginalImagePath = dialog.FileName;
+                var currentImage = new BitmapImage(new Uri(OriginalImagePath));
                 CurrentImage.Source = currentImage;
-                _model.CurrentImage = new Bitmap(currentImage.UriSource.AbsolutePath);
+                _model = new MainWindowModel(OriginalImagePath);
+                _model.TargetPath = currentImage.UriSource.AbsolutePath;
+            }
+            else
+            {
+                SetTargetPath(".BMP");
             }
         }
 
         public void Save_Click(object sender, EventArgs e)
         {
-
+            _model.SaveImage();
         }
 
         public void QualitySlider_ValueChanged(object sender, EventArgs e)
         {
-            SliderValueTextBox.Text = QualitySlider.Value.ToString("N2");
+            if(SliderValueTextBox != null)
+            {
+                SliderValueTextBox.Text = QualitySlider.Value.ToString("N2");
+                _model.UpdateQuality((int)QualitySlider.Value);     //Quality can not be updated upwards
+                if(!Equals(CurrentImage, null) && !Equals(_model.TargetPath, null))
+                {
+                    CurrentImage.Source = new BitmapImage(new Uri(_model.TargetPath));
+                }
+            }
         }
 
         public void Resize_Click(object sender, EventArgs e)

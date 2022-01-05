@@ -191,7 +191,7 @@ namespace WpfApp1
             EncoderParameters encoderParameters = new EncoderParameters(1);
             if(quality.HasValue)
             {
-                encoderParameters.Param[0] = new EncoderParameter(System.Drawing.Imaging.Encoder.Quality, quality.Value); // 100L = 100% Quality
+                encoderParameters.Param[0] = new EncoderParameter(System.Drawing.Imaging.Encoder.Compression, quality.Value); // 100L = 100% Quality
             }
             try
             {

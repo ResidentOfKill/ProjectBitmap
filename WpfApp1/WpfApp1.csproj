@@ -105,5 +105,8 @@
   <ItemGroup>
     <Resource Include="waterdrop.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Question_mark.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -95,10 +95,12 @@ namespace WpfApp1.Controller
         {
             
             var form = new System.Windows.Forms.Form();
+            form.Height = 1000;
+            form.Width = 1000;
             form.Show();
 
             var pb = new System.Windows.Forms.PictureBox();
-            pb.ImageLocation = @"/WpfApp1/Tooltipp.png";
+            pb.ImageLocation = "https://i.ibb.co/8c0B63R/Illustration.png";
             pb.Size = form.Size;
             pb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
 

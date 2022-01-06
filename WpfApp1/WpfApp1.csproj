@@ -117,6 +117,7 @@
     <Resource Include="Question_mark.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Controller\Tooltipp.png" />
     <Content Include="Tooltipp.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

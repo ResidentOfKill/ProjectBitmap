@@ -8,6 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("controller/tooltipp.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("tooltipp.png")]
 
 

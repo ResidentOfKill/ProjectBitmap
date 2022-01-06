@@ -2,7 +2,7 @@
 Dies ist ein Programm zur Komprimierung und zur Bearbeitung von Bilddateien.
 
 ## Voraussetzung 
-Windows version 7 >= wird benötigt 
+Windows Version >= 7 wird benötigt 
 
 ## Funktionen
 - Verkleinerung und Vergrößerung

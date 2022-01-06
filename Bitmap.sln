@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.31727.386
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp1", "WpfApp1\WpfApp1.csproj", "{E32F5FB6-4AE1-429E-9E10-C2068867678A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TempFolderRemover", "TempFolderRemover\TempFolderRemover.csproj", "{49EACC30-2BE8-47CD-A927-67DE028F090D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{E32F5FB6-4AE1-429E-9E10-C2068867678A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E32F5FB6-4AE1-429E-9E10-C2068867678A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E32F5FB6-4AE1-429E-9E10-C2068867678A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49EACC30-2BE8-47CD-A927-67DE028F090D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49EACC30-2BE8-47CD-A927-67DE028F090D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49EACC30-2BE8-47CD-A927-67DE028F090D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49EACC30-2BE8-47CD-A927-67DE028F090D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

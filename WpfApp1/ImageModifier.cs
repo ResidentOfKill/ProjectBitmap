@@ -424,12 +424,19 @@ namespace WpfApp1
 
         private static Bitmap ResizeBitmap(Bitmap bmp, int width, int height)
         {
-            Bitmap result = new Bitmap(width, height);
-            using(Graphics g = Graphics.FromImage(result))
+            if(width > 0 && height > 0)
             {
-                g.DrawImage(bmp, 0, 0, width, height);
+                Bitmap result = new Bitmap(width, height);
+                using(Graphics g = Graphics.FromImage(result))
+                {
+                    g.DrawImage(bmp, 0, 0, width, height);
+                }
+                return result;
             }
-            return result;
+            else
+            {
+                return bmp;
+            }
         }
         #endregion
 

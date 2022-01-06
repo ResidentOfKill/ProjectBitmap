@@ -9,11 +9,10 @@
 		Title="Bitmap"
 		Height="450"
 		SizeToContent="Width"
-		ResizeMode="CanResizeWithGrip"
+		ResizeMode="NoResize"
 		Icon="waterdrop.png"
 		BorderBrush="Black"
-		BorderThickness="1"
-		>
+		BorderThickness="1">
 	<Window.Resources>
 		<ResourceDictionary>
 			<ResourceDictionary.MergedDictionaries>
@@ -89,8 +88,7 @@
 						TickFrequency="10"
 						IsSnapToTickEnabled="True"
 						Visibility="Visible"
-						Value="100"
-						/>
+						Value="100" />
 				<Separator Visibility="Hidden" />
 				<TextBlock HorizontalAlignment="Left"
 						   VerticalAlignment="Top"
@@ -100,14 +98,13 @@
 			<TextBox Width="40"
 					 Height="25"
 					 Name="SliderValueTextBox"
-					 Style="{StaticResource NumberBox}" 
+					 Style="{StaticResource NumberBox}"
 					 VerticalContentAlignment="Center"
 					 VerticalAlignment="Center"
 					 HorizontalAlignment="Center"
 					 HorizontalContentAlignment="Center"
 					 IsReadOnly="True"
-					 IsReadOnlyCaretVisible="True"
-					 />
+					 IsReadOnlyCaretVisible="True" />
 			<Separator Width="10"
 					   Visibility="Hidden" />
 		</StackPanel>
@@ -126,7 +123,7 @@
 						Width="150">
 				<!-- Skalierung -->
 				<TextBlock Margin="5,15,0,0"
-						   HorizontalAlignment="Left"
+						   HorizontalAlignment="Center"
 						   VerticalAlignment="Top"
 						   Text="Skalierung:"
 						   FontWeight="DemiBold" />
@@ -139,13 +136,13 @@
 						<!-- Höhe -->
 						<Label HorizontalAlignment="Center"
 							   VerticalAlignment="Center"
-							   Content="Höhe"
+							   Content="Höhe:"
 							   FontWeight="Medium" />
 						<TextBox Height="25"
 								 Width="50"
 								 HorizontalContentAlignment="Center"
 								 VerticalContentAlignment="Center"
-								 Text="100"
+								 Text="0"
 								 Style="{StaticResource NumberBox}"
 								 TextWrapping="Wrap"
 								 TextAlignment="Center"
@@ -157,14 +154,14 @@
 						<!-- Breite -->
 						<Label HorizontalAlignment="Center"
 							   VerticalAlignment="Center"
-							   Content="Breite"
+							   Content="Breite:"
 							   FontWeight="Medium" />
 						<TextBox Height="25"
 								 Width="50"
 								 Style="{StaticResource NumberBox}"
 								 HorizontalContentAlignment="Center"
 								 VerticalContentAlignment="Center"
-								 Text="100"
+								 Text="0"
 								 TextWrapping="Wrap"
 								 TextAlignment="Center"
 								 Name="ImageWidthTextBox" />
@@ -182,18 +179,19 @@
 							Width="150">
 
 					<!-- Dateigröße -->
-					<TextBlock HorizontalAlignment="Left"
+					<TextBlock HorizontalAlignment="Center"
 							   VerticalAlignment="Top"
-							   Text="Maximale Dateigröße:"
+							   Text="Maximale Dateigröße (MB)"
 							   TextAlignment="Center"
 							   Margin="5,15,0,0"
 							   FontWeight="Medium" />
+                    
 					<TextBox Height="25"
 							 Width="110"
 							 Style="{StaticResource NumberBox}"
 							 HorizontalContentAlignment="Center"
 							 VerticalContentAlignment="Center"
-							 Text="Megabyte (MB)"
+							 Text=""
 							 TextAlignment="Center"
 							 Margin="0,10,0,10"
 							 Name="FileSizeTextBox" />
@@ -203,11 +201,14 @@
 						<StackPanel Orientation="Vertical">
 
 							<RadioButton Content="PNG"
-										 Checked="RadioButton_Checked" />
+										 Checked="RadioButton_Checked" 
+										 Name="PNGRadioButton"/>
 							<RadioButton Content="JPG"
-										 Checked="RadioButton_Checked" />
+										 Checked="RadioButton_Checked" 
+										 Name="JPGRadioButton"/>
 							<RadioButton Content="BMP"
-										 Checked="RadioButton_Checked" />
+										 Checked="RadioButton_Checked" 
+										 Name="BMPRadioButton"/>
 						</StackPanel>
 					</StackPanel>
 				</StackPanel>
@@ -218,22 +219,38 @@
 
 			<StackPanel Orientation="Vertical"
 						VerticalAlignment="Center">
-				<Button Height="20"
-						Width="150"
-						BorderBrush="Black"
-						BorderThickness="0.5"
-						HorizontalAlignment="Left"
-						VerticalAlignment="Top"
-						Content="Datei Öffnen"
-						Click="OpenFile_Click"
-						Name="OpenFileButton" />
-				<Separator Height="15"
+				<StackPanel Orientation="Horizontal">
+					<Button Height="20"
+							Width="80"
+							BorderBrush="Black"
+							BorderThickness="0.5"
+							HorizontalAlignment="Left"
+							VerticalAlignment="Top"
+							Content="Datei Öffnen"
+							Click="OpenFile_Click"
+							Name="OpenFileButton" />
+					<Separator Width="10"
+							   Visibility="Hidden" />
+					<Button Content="Zuschneiden"
+                            IsEnabled="False"
+							Width="80"
+							Name="ResizeButton"
+							Click="ResizeButton_Click" />
+				</StackPanel>
+				<Separator Height="17.5"
+						   Visibility="Hidden" />
+				<Button Content="MB Anpassen" 
+                        IsEnabled="False"
+						Click="AlignButton_Click"
+                        Name="AlignButton"/>
+				<Separator Height="17.5"
 						   Visibility="Hidden" />
 				<StackPanel Orientation="Horizontal"
 							HorizontalAlignment="Center">
 
 					<Button Height="20"
-							Width="70"
+							Width="80"
+							IsEnabled="False"
 							BorderBrush="Black"
 							BorderThickness="0.5"
 							HorizontalAlignment="Left"
@@ -244,8 +261,10 @@
 					<Separator Width="10"
 							   Visibility="Hidden" />
 					<Button Height="20"
-							Width="70"
+							Width="80"
+                            IsEnabled="False"
 							BorderBrush="Black"
+							Click="ResetButton_Click"
 							BorderThickness="0.5"
 							HorizontalAlignment="Left"
 							VerticalAlignment="Top"
@@ -261,7 +280,8 @@
 				Margin="-25,0,0,0"
 				VerticalAlignment="Top"
 				HorizontalAlignment="Right"
-			x:Name="HelpButton"
+				x:Name="HelpButton"
+				Click="Open_Tooltipp"
 				Width="20"
 				Height="20">
 			<Image Source="Question_mark.png" />

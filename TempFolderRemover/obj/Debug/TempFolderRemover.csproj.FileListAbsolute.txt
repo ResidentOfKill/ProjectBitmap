@@ -1,0 +1,14 @@
+C:\Users\DCelik\source\repos\ResidentOfKill\ProjectBitmap\TempFolderRemover\bin\Debug\TempFolderRemover.exe.config
+C:\Users\DCelik\source\repos\ResidentOfKill\ProjectBitmap\TempFolderRemover\bin\Debug\TempFolderRemover.exe
+C:\Users\DCelik\source\repos\ResidentOfKill\ProjectBitmap\TempFolderRemover\bin\Debug\TempFolderRemover.pdb
+C:\Users\DCelik\source\repos\ResidentOfKill\ProjectBitmap\TempFolderRemover\obj\Debug\TempFolderRemover.csproj.AssemblyReference.cache
+C:\Users\DCelik\source\repos\ResidentOfKill\ProjectBitmap\TempFolderRemover\obj\Debug\TempFolderRemover.csproj.CoreCompileInputs.cache
+C:\Users\DCelik\source\repos\ResidentOfKill\ProjectBitmap\TempFolderRemover\obj\Debug\TempFolderRemover.exe
+C:\Users\DCelik\source\repos\ResidentOfKill\ProjectBitmap\TempFolderRemover\obj\Debug\TempFolderRemover.pdb
+C:\Users\jason\Documents\ProjectBitmap\TempFolderRemover\bin\Debug\TempFolderRemover.exe.config
+C:\Users\jason\Documents\ProjectBitmap\TempFolderRemover\bin\Debug\TempFolderRemover.exe
+C:\Users\jason\Documents\ProjectBitmap\TempFolderRemover\bin\Debug\TempFolderRemover.pdb
+C:\Users\jason\Documents\ProjectBitmap\TempFolderRemover\obj\Debug\TempFolderRemover.csproj.AssemblyReference.cache
+C:\Users\jason\Documents\ProjectBitmap\TempFolderRemover\obj\Debug\TempFolderRemover.csproj.CoreCompileInputs.cache
+C:\Users\jason\Documents\ProjectBitmap\TempFolderRemover\obj\Debug\TempFolderRemover.exe
+C:\Users\jason\Documents\ProjectBitmap\TempFolderRemover\obj\Debug\TempFolderRemover.pdb

@@ -13,9 +13,7 @@ namespace WpfApp1
 {
     public class MainWindowModel
     {
-
-        private int _fileCount = 0;
-
+        
         public MainWindowModel(string imagePath)
         {
             OriginalImagePath = imagePath;
@@ -55,11 +53,13 @@ namespace WpfApp1
 
         public Bitmap OriginalImage { get; }
 
-        public Bitmap ScaleImage(int width, int height)
+        public ImageFormat Format { get; set; }
+
+
+        public void ScaleImage(int width, int height)
         {
             var newImage = ImageModifier.ResizeImage(CurrentImage, width, height);
             CurrentImage = newImage;
-            return newImage;
         }
 
         public void UpdateQuality(int quality)
@@ -69,9 +69,6 @@ namespace WpfApp1
 
         public void SaveAsJPG(int quality)
         {
-            var newPath = System.IO.Path.Combine(Directory.GetCurrentDirectory(), "temp2", $"tempImage{Guid.NewGuid()}.{ImageFormat.Jpeg.ToString().ToLower()}");
-            CurrentImagePath = System.IO.Path.ChangeExtension(newPath, ".jpg");
-            Directory.CreateDirectory(System.IO.Path.GetDirectoryName(CurrentImagePath));
 
             ImageModifier.SaveAsJPG(OriginalImage, CurrentImagePath, quality);
             CurrentImage = new Bitmap(CurrentImagePath);
@@ -87,9 +84,9 @@ namespace WpfApp1
             ImageModifier.SaveAsBMP(CurrentImage, CurrentImagePath);
         }
 
-        public void SaveImage()
+        public void SaveImage(string path)
         {
-            CurrentImage.Save("CurrentImage", ImageFormat.Jpeg);
+            CurrentImage.Save(path, Format);
         }
     }
 }

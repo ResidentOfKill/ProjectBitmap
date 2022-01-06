@@ -98,7 +98,7 @@ namespace WpfApp1.Controller
             form.Show();
 
             var pb = new System.Windows.Forms.PictureBox();
-            pb.ImageLocation = "https://www.google.com/images/srpr/logo11w.png";
+            pb.ImageLocation = @"/WpfApp1/Tooltipp.png";
             pb.Size = form.Size;
             pb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
 

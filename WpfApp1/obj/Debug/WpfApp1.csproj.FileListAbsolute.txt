@@ -66,3 +66,4 @@ C:\xampp\htdocs\ProjectBitmap\WpfApp1\obj\Debug\MainWindowToolTipp.g.cs
 C:\xampp\htdocs\ProjectBitmap\WpfApp1\obj\Debug\MainWindowToolTipp.baml
 C:\xampp\htdocs\ProjectBitmap\WpfApp1\bin\Debug\System.Windows.Forms.dll
 C:\xampp\htdocs\ProjectBitmap\WpfApp1\bin\Debug\de\System.Windows.Forms.resources.dll
+C:\xampp\htdocs\ProjectBitmap\WpfApp1\obj\Debug\WpfApp1_Content.g.cs

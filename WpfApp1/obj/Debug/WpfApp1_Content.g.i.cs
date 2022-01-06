@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("1946429.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("tooltipp.png")]
 
 

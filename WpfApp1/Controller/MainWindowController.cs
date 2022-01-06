@@ -18,6 +18,7 @@ using System.IO;
 using WpfApp1.Helpers;
 using WpfApp1.Interfaces;
 using System.Security.AccessControl;
+using System.Threading;
 
 namespace WpfApp1.Controller
 {
@@ -29,7 +30,6 @@ namespace WpfApp1.Controller
         public MainWindowController()
         {
             InitializeComponent();
-            SliderStackPanel.Visibility = Visibility.Collapsed;
             Closing += DeleteTemporaryData_Closing;
         }
 
@@ -37,15 +37,23 @@ namespace WpfApp1.Controller
 
         private void DeleteTemporaryData_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            //File.Delete(_model.TargetPath);
+
+            CurrentImage = null;
+            _model.CurrentImage.Dispose();
+            _model.OriginalImage.Dispose();
+            _model.CurrentImagePath = null;
+            Directory.Delete(System.IO.Path.GetDirectoryName(_model.CurrentImagePath), true);
         }
 
         private void SetTargetPath(string fileExtension)
         {
             var path = System.IO.Path.Combine(Directory.GetCurrentDirectory(), $"temp", $"BitmapTempImage{++_imageCount}.bmp");
             System.IO.Path.ChangeExtension(path, fileExtension);
-            _ = Directory.CreateDirectory(System.IO.Path.GetDirectoryName(path));
-            _model.TargetPath = path;
+            Directory.CreateDirectory(System.IO.Path.GetDirectoryName(path));
+            if(!Equals(_model, null))
+            {
+                _model.CurrentImagePath = path;
+            }
         }
 
 
@@ -55,7 +63,7 @@ namespace WpfApp1.Controller
             {
                 CheckFileExists = true,
                 CheckPathExists = true,
-                Filter = "Image Files(*.BMP;*.JPG;*.GIF)|*.BMP;*.JPG;*.GIF|All files (*.*)|*.*",
+                Filter = "Image Files(*.PNG;*.JPG;*.GIF)|*.PNG;*.JPG;*.GIF|All files (*.*)|*.*",
                 InitialDirectory = System.IO.Directory.GetCurrentDirectory(),
                 Multiselect = false,
                 Title = "Waehle Bilddatei aus",
@@ -63,10 +71,9 @@ namespace WpfApp1.Controller
             if(dialog.ShowDialog() ?? false)
             {
                 OriginalImagePath = dialog.FileName;
-                var currentImage = new BitmapImage(new Uri(OriginalImagePath));
-                CurrentImage.Source = currentImage;
                 _model = new MainWindowModel(OriginalImagePath);
-                _model.TargetPath = currentImage.UriSource.AbsolutePath;
+                var currentImage = new BitmapImage(new Uri(_model.OriginalImagePath));
+                CurrentImage.Source = currentImage;
             }
             else
             {
@@ -76,18 +83,30 @@ namespace WpfApp1.Controller
 
         public void Save_Click(object sender, EventArgs e)
         {
-            _model.SaveImage();
+            SaveFileDialog saveFileDialog = new SaveFileDialog()
+            {
+
+            }
         }
 
-        public void QualitySlider_ValueChanged(object sender, EventArgs e)
+        public void QualitySlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             if(SliderValueTextBox != null)
             {
-                SliderValueTextBox.Text = QualitySlider.Value.ToString("N2");
-                _model.UpdateQuality((int)QualitySlider.Value);     //Quality can not be updated upwards
-                if(!Equals(CurrentImage, null) && !Equals(_model.TargetPath, null))
+                if(!Equals(CurrentImage, null) && !Equals(_model, null) && !Equals(_model.CurrentImagePath, null))
                 {
-                    CurrentImage.Source = new BitmapImage(new Uri(_model.TargetPath));
+                    _model.UpdateQuality((int)QualitySlider.Value);     //Quality can not be updated upwards
+                    SliderValueTextBox.Text = QualitySlider.Value.ToString("N2");
+
+                    CurrentImage.Source = new BitmapImage(new Uri(_model.CurrentImagePath));
+                }
+                else
+                {
+                    MessageBox.Show(this, "Bitte wählen Sie zuerst ein Bild aus", "Error 404: Image not found", MessageBoxButton.OK);
+                    QualitySlider.ValueChanged -= QualitySlider_ValueChanged;
+                    QualitySlider.Value = e.OldValue;
+                    QualitySlider.ValueChanged += QualitySlider_ValueChanged;
+
                 }
             }
         }
@@ -106,15 +125,17 @@ namespace WpfApp1.Controller
 
         public void RadioButton_Checked(object sender, RoutedEventArgs e)
         {
-            var radioButtonContent = sender is RadioButton isRadioButton ? isRadioButton.Content as string : throw new Exception();
-            if(radioButtonContent == "JPG")
-            {
-                SliderStackPanel.Visibility = Visibility.Visible;
-            }
-            else
-            {
-                SliderStackPanel.Visibility = Visibility.Collapsed;
-            }
+            QualitySlider.IsEnabled = true;
+
+            //var radioButtonContent = sender is RadioButton isRadioButton ? isRadioButton.Content as string : throw new Exception();
+            //if(radioButtonContent == "JPG")
+            //{
+            //    SliderStackPanel.Visibility = Visibility.Visible;
+            //}
+            //else
+            //{
+            //    SliderStackPanel.Visibility = Visibility.Collapsed;
+            //}
         }
     }
 }

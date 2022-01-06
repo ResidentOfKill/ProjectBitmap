@@ -12,33 +12,37 @@ namespace WpfApp1
 {
     public static class ImageModifier
     {
+
         #region [   ImageConversion   ]
 
         // Save/Convert Images as/to JPG, PNG or BMP
 
         public static void SaveAsJPG(string sourcePath, string targetPath, int quality)
         {
+            using(var bitmap = GetBitmap(sourcePath))
+            {
+                if(bitmap == null) return;
+
+                ImageFormat imageFormat = ImageFormat.Jpeg;
+                SaveAs(bitmap, targetPath, quality, imageFormat);
+            }
+        }
+        public static void SaveAsJPG(string sourcePath, string targetPath)
+        {
+            SaveAsJPG(sourcePath, targetPath, 100);
+        }
+
+        public static void SaveAsJPG(string sourcePath, Stream targetStream, int quality)
+        {
             Bitmap bitmap = GetBitmap(sourcePath);
             if(bitmap == null) return;
-
-            SaveAs(bitmap, targetPath, quality, ImageFormat.Jpeg);
-        }
-        public static void SaveAsJPG (string sourcePath, string targetPath)
-        {
-            SaveAsJPG (sourcePath, targetPath, 100);
-        }                                           
-                                                    
-        public static void SaveAsJPG(string sourcePath, Stream targetStream, int quality)
-        {                                           
-            Bitmap bitmap = GetBitmap(sourcePath);  
-            if(bitmap == null) return;              
 
             SaveAs(bitmap, targetStream, quality, ImageFormat.Jpeg);
         }
 
-        public static void SaveAsJPG (string sourcePath, Stream targetStream)
+        public static void SaveAsJPG(string sourcePath, Stream targetStream)
         {
-            SaveAsJPG (sourcePath, targetStream, 100);
+            SaveAsJPG(sourcePath, targetStream, 100);
         }
 
         public static void SaveAsJPG(Stream sourceStream, string targetPath, int quality)
@@ -49,9 +53,9 @@ namespace WpfApp1
             SaveAs(bitmap, targetPath, quality, ImageFormat.Jpeg);
         }
 
-        public static void SaveAsJPG (Stream sourceStream, string targetPath)
+        public static void SaveAsJPG(Stream sourceStream, string targetPath)
         {
-            SaveAsJPG (sourceStream, targetPath, 100);
+            SaveAsJPG(sourceStream, targetPath, 100);
         }
 
         public static void SaveAsJPG(Stream sourceStream, Stream targetStream, int quality)
@@ -62,9 +66,9 @@ namespace WpfApp1
             SaveAs(bitmap, targetStream, quality, ImageFormat.Jpeg);
         }
 
-        public static void SaveAsJPG (Stream sourceStream, Stream targetStream)
+        public static void SaveAsJPG(Stream sourceStream, Stream targetStream)
         {
-            SaveAsJPG (sourceStream, targetStream, 100);
+            SaveAsJPG(sourceStream, targetStream, 100);
         }
 
         public static void SaveAsJPG(Bitmap bitmap, string targetPath, int quality)
@@ -74,9 +78,9 @@ namespace WpfApp1
             SaveAs(bitmap, targetPath, quality, ImageFormat.Jpeg);
         }
 
-        public static void SaveAsJPG (Bitmap bitmap, string targetPath)
+        public static void SaveAsJPG(Bitmap bitmap, string targetPath)
         {
-            SaveAsJPG (bitmap, targetPath, 100);
+            SaveAsJPG(bitmap, targetPath, 100);
         }
 
         public static void SaveAsJPG(Bitmap bitmap, Stream targetStream, int quality)
@@ -86,9 +90,9 @@ namespace WpfApp1
             SaveAs(bitmap, targetStream, quality, ImageFormat.Jpeg);
         }
 
-        public static void SaveAsJPG (Bitmap bitmap, Stream targetStream)
+        public static void SaveAsJPG(Bitmap bitmap, Stream targetStream)
         {
-            SaveAsJPG (bitmap, targetStream, 100);
+            SaveAsJPG(bitmap, targetStream, 100);
         }
 
 
@@ -188,20 +192,26 @@ namespace WpfApp1
 
         private static void SaveAs(Bitmap bmp, string path, long? quality, ImageFormat imageFormat)
         {
-            EncoderParameters encoderParameters = new EncoderParameters(1);
-            if(quality.HasValue)
+            using(var encoderParameters = new EncoderParameters(1))
             {
-                encoderParameters.Param[0] = new EncoderParameter(System.Drawing.Imaging.Encoder.Compression, quality.Value); // 100L = 100% Quality
-            }
-            try
-            {
-                bmp.Save(path, GetEncoder(imageFormat), encoderParameters);
-            }
-            catch(Exception e)
-            {
-                Debug.WriteLine($"{e.GetType().Name}: {e.Message}\n{e.StackTrace}");
+                using(var parameter = new EncoderParameter(System.Drawing.Imaging.Encoder.Quality, quality.Value))
+                {
+                    if(quality.HasValue)
+                    {
+                        encoderParameters.Param[0] = parameter; // 100L = 100% Quality
+                    }
+                    try
+                    {
+                        bmp.Save(path, GetEncoder(imageFormat), encoderParameters);
+                    }
+                    catch(Exception e)
+                    {
+                        Debug.WriteLine($"{e.GetType().Name}: {e.Message}\n{e.StackTrace}");
+                    }
+                }
             }
         }
+
 
         private static void SaveAs(Bitmap bmp, Stream stream, long? quality, ImageFormat imageFormat)
         {
@@ -271,7 +281,7 @@ namespace WpfApp1
         }
 
         public static Bitmap ResizeImage(Bitmap currentImage, int width, int height)
-        { 
+        {
             Bitmap resizedBitmap = ResizeBitmap(currentImage, width, height);
             return resizedBitmap;
         }

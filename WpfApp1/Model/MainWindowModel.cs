@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Shapes;
 using Microsoft.Win32;
 
 namespace WpfApp1
@@ -13,30 +14,44 @@ namespace WpfApp1
     public class MainWindowModel
     {
 
+        private int _fileCount = 0;
+
         public MainWindowModel(string imagePath)
         {
             OriginalImagePath = imagePath;
             OriginalImage = new Bitmap(OriginalImagePath);
+            CurrentImagePath = OriginalImagePath;
+            CurrentImage = new Bitmap(CurrentImagePath);
         }
 
         public string OriginalImagePath { get; }
 
 
-        private string _targetPath;
-        public string TargetPath
+        private string _currentImagePath;
+
+        public string CurrentImagePath
         {
-            get => _targetPath;
+            get => _currentImagePath;
             set
             {
                 if(!string.IsNullOrWhiteSpace(value))
                 {
-                    CurrentImage = new Bitmap(value);
-                    _targetPath = value;
+                    _currentImagePath = value;
                 }
             }
         }
 
-        public Bitmap CurrentImage { get; private set; }
+
+        private Bitmap _currentImage;
+        public Bitmap CurrentImage
+        {
+            get => _currentImage;
+            private set
+            {
+                _currentImage?.Dispose();
+                _currentImage = value;
+            }
+        }
 
         public Bitmap OriginalImage { get; }
 
@@ -50,22 +65,26 @@ namespace WpfApp1
         public void UpdateQuality(int quality)
         {
             SaveAsJPG(quality);
-            CurrentImage = !string.IsNullOrWhiteSpace(TargetPath) ? new Bitmap(TargetPath) : null;
         }
 
         public void SaveAsJPG(int quality)
         {
-            ImageModifier.SaveAsJPG(OriginalImagePath, TargetPath, quality);
+            var newPath = System.IO.Path.Combine(Directory.GetCurrentDirectory(), "temp2", $"tempImage{Guid.NewGuid()}.{ImageFormat.Jpeg.ToString().ToLower()}");
+            CurrentImagePath = System.IO.Path.ChangeExtension(newPath, ".jpg");
+            Directory.CreateDirectory(System.IO.Path.GetDirectoryName(CurrentImagePath));
+
+            ImageModifier.SaveAsJPG(OriginalImage, CurrentImagePath, quality);
+            CurrentImage = new Bitmap(CurrentImagePath);
         }
 
         public void SaveAsPNG()
         {
-            ImageModifier.SaveAsPNG(CurrentImage, TargetPath);
+            ImageModifier.SaveAsPNG(CurrentImage, CurrentImagePath);
         }
 
         public void SaveAsBMP()
         {
-            ImageModifier.SaveAsBMP(CurrentImage, TargetPath);
+            ImageModifier.SaveAsBMP(CurrentImage, CurrentImagePath);
         }
 
         public void SaveImage()

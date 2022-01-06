@@ -91,7 +91,19 @@ namespace WpfApp1.Controller
                 }
             }
         }
+        public void Open_Tooltipp(object sender, EventArgs e)
+        {
+            
+            var form = new System.Windows.Forms.Form();
+            form.Show();
 
+            var pb = new System.Windows.Forms.PictureBox();
+            pb.ImageLocation = "https://www.google.com/images/srpr/logo11w.png";
+            pb.Size = form.Size;
+            pb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+
+            form.Controls.Add(pb);
+        }
         public void Resize_Click(object sender, EventArgs e)
         {
             if(int.TryParse(ImageWidthTextBox.Text, out var width) && int.TryParse(ImageHeightTextBox.Text, out var height))

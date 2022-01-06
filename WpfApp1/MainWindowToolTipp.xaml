@@ -1,0 +1,260 @@
+﻿<Window x:Name="Bitmap"
+		x:Class="WpfApp1.Controller.MainWindowTooltippController"
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		xmlns:local="clr-namespace:WpfApp1"
+		mc:Ignorable="d"
+		Title="Bitmap"
+		Height="1000"
+		
+		SizeToContent="Width"
+		ResizeMode="CanResizeWithGrip"
+		Icon="waterdrop.png"
+		BorderBrush="Black"
+		BorderThickness="1"
+		>
+	<Window.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary Source="Helpers\NumberBoxDictionary.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
+	</Window.Resources>
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="451.333" />
+			<ColumnDefinition Width="Auto" />
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="1*" />
+			<RowDefinition Height="0.5*" />
+		</Grid.RowDefinitions>
+		<Rectangle  Grid.Row="0"
+					Grid.Column="0"
+					Name="ImageBackground"
+					Height="auto"
+					Width="auto"
+					Stroke="Black"
+					StrokeThickness="1"
+					Fill="#FFF1F1F1" />
+
+		<Image      Grid.Column="0"
+					Grid.Row="0"
+					Margin="5,5"
+					Name="CurrentImage" />
+
+		<!-- Slider -->
+		<Border BorderBrush="Black"
+				BorderThickness="1"
+				Grid.Row="0"
+				Grid.Column="1" />
+
+		<Border BorderBrush="Black"
+				BorderThickness="1"
+				Grid.Column="0"
+				Grid.Row="1"
+				Grid.ColumnSpan="2" />
+
+		<StackPanel Orientation="Horizontal"
+					Grid.Row="0"
+					Grid.Column="1"
+					Name="SliderStackPanel"
+					Visibility="Visible">
+
+			<StackPanel Orientation="Vertical">
+				<TextBlock HorizontalAlignment="Left"
+						   VerticalAlignment="Top"
+						   Text="Qualität"
+						   FontWeight="DemiBold"
+						   Margin="10,5" />
+				<Separator Visibility="Hidden"
+						   Height="0" />
+				<TextBlock Grid.Row="0"
+						   Grid.Column="1"
+						   HorizontalAlignment="Left"
+						   VerticalAlignment="Top"
+						   Text="100%"
+						   Margin="15,0" />
+				<Separator Visibility="Hidden" />
+				<Slider Height="200"
+						Width="20"
+						Margin="0,0,0,0"
+						Orientation="Vertical"
+						Minimum="0"
+						Maximum="100"
+						ValueChanged="QualitySlider_ValueChanged"
+						Name="QualitySlider"
+						TickFrequency="10"
+						IsSnapToTickEnabled="True"
+						Value="100"
+						/>
+				<Separator Visibility="Hidden" />
+				<TextBlock HorizontalAlignment="Left"
+						   VerticalAlignment="Top"
+						   Text="0%"
+						   Margin="22,0" />
+			</StackPanel>
+			<TextBox Width="40"
+					 Height="25"
+					 Name="SliderValueTextBox"
+					 Style="{StaticResource NumberBox}" 
+					 VerticalContentAlignment="Center"
+					 VerticalAlignment="Center"
+					 HorizontalAlignment="Center"
+					 HorizontalContentAlignment="Center"
+					 IsReadOnly="True"
+					 IsReadOnlyCaretVisible="True"
+					 />
+			<Separator Width="10"
+					   Visibility="Hidden" />
+		</StackPanel>
+
+		<StackPanel Orientation="Horizontal"
+					HorizontalAlignment="Left"
+					Grid.Row="1"
+					Grid.Column="0"
+					Grid.ColumnSpan="2">
+			<Separator Width="32.5"
+					   Visibility="Hidden" />
+
+			<StackPanel Orientation="Vertical"
+						Grid.Row="1"
+						Grid.Column="0"
+						Width="150">
+				<!-- Skalierung -->
+				<TextBlock Margin="5,15,0,0"
+						   HorizontalAlignment="Left"
+						   VerticalAlignment="Top"
+						   Text="Skalierung:"
+						   FontWeight="DemiBold" />
+				<StackPanel Orientation="Horizontal"
+							Grid.Row="1"
+							Grid.Column="0"
+							HorizontalAlignment="Center"
+							Margin="0,10,0,0">
+					<StackPanel Orientation="Vertical">
+						<!-- Höhe -->
+						<Label HorizontalAlignment="Center"
+							   VerticalAlignment="Center"
+							   Content="Höhe"
+							   FontWeight="Medium" />
+						<TextBox Height="25"
+								 Width="50"
+								 HorizontalContentAlignment="Center"
+								 VerticalContentAlignment="Center"
+								 Text="100"
+								 Style="{StaticResource NumberBox}"
+								 TextWrapping="Wrap"
+								 TextAlignment="Center"
+								 Name="ImageHeightTextBox" />
+					</StackPanel>
+					<Separator Width="5"
+							   Visibility="Hidden" />
+					<StackPanel Orientation="Vertical">
+						<!-- Breite -->
+						<Label HorizontalAlignment="Center"
+							   VerticalAlignment="Center"
+							   Content="Breite"
+							   FontWeight="Medium" />
+						<TextBox Height="25"
+								 Width="50"
+								 Style="{StaticResource NumberBox}"
+								 HorizontalContentAlignment="Center"
+								 VerticalContentAlignment="Center"
+								 Text="100"
+								 TextWrapping="Wrap"
+								 TextAlignment="Center"
+								 Name="ImageWidthTextBox" />
+					</StackPanel>
+				</StackPanel>
+			</StackPanel>
+
+			<Separator Width="32.5"
+					   Visibility="Hidden" />
+			<StackPanel Orientation="Horizontal"
+						Grid.Row="1"
+						Grid.Column="0">
+
+				<StackPanel Orientation="Vertical"
+							Width="150">
+
+					<!-- Dateigröße -->
+					<TextBlock HorizontalAlignment="Left"
+							   VerticalAlignment="Top"
+							   Text="Maximale Dateigröße:"
+							   TextAlignment="Center"
+							   Margin="5,15,0,0"
+							   FontWeight="Medium" />
+					<TextBox Height="25"
+							 Width="110"
+							 Style="{StaticResource NumberBox}"
+							 HorizontalContentAlignment="Center"
+							 VerticalContentAlignment="Center"
+							 Text="Megabyte (MB)"
+							 TextAlignment="Center"
+							 Margin="0,10,0,10"
+							 Name="FileSizeTextBox" />
+
+					<StackPanel Orientation="Horizontal"
+								HorizontalAlignment="Center">
+						<StackPanel Orientation="Vertical">
+
+							<RadioButton Content="PNG"
+										 Checked="RadioButton_Checked" />
+							<RadioButton Content="JPG"
+										 Checked="RadioButton_Checked" />
+							<RadioButton Content="BMP"
+										 Checked="RadioButton_Checked" />
+						</StackPanel>
+					</StackPanel>
+				</StackPanel>
+			</StackPanel>
+
+			<Separator Width="32.5"
+					   Visibility="Hidden" />
+
+			<StackPanel Orientation="Vertical"
+						VerticalAlignment="Center">
+				<Button Height="20"
+						Width="150"
+						BorderBrush="Black"
+						BorderThickness="0.5"
+						HorizontalAlignment="Left"
+						VerticalAlignment="Top"
+						Content="Datei Öffnen"
+						Click="OpenFile_Click"
+						Name="OpenFileButton" />
+				<Separator Height="15"
+						   Visibility="Hidden" />
+				<StackPanel Orientation="Horizontal"
+							HorizontalAlignment="Center">
+
+					<Button Height="20"
+							Width="70"
+							BorderBrush="Black"
+							BorderThickness="0.5"
+							HorizontalAlignment="Left"
+							VerticalAlignment="Top"
+							Content="Speichern"
+							Click="Save_Click"
+							Name="SaveButton" />
+					<Separator Width="10"
+							   Visibility="Hidden" />
+					<Button Height="20"
+							Width="70"
+							BorderBrush="Black"
+							BorderThickness="0.5"
+							HorizontalAlignment="Left"
+							VerticalAlignment="Top"
+							Content="Reset"
+							Name="ResetButton" />
+				</StackPanel>
+			</StackPanel>
+			<Separator Width="32.5"
+					   Visibility="Hidden" />
+		</StackPanel>
+		
+	</Grid>
+</Window>

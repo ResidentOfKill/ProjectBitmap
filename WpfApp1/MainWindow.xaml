@@ -260,6 +260,7 @@
 				VerticalAlignment="Top"
 				HorizontalAlignment="Right"
 			x:Name="HelpButton"
+				Click="Open_Tooltipp"
 				Width="20"
 				Height="20">
 			<Image Source="Question_mark.png" />
